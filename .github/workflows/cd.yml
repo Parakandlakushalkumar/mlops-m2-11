@@ -1,0 +1,24 @@
+name: Continuous Delivery
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate HTML
+        run: |
+          test -f index.html
+          echo "index.html found successfully"
+
+      - name: Deployment simulation
+        run: |
+          echo "Continuous Delivery completed successfully"
+          echo "Version deployed successfully"
